@@ -3,6 +3,7 @@ from celery import Task
 from app.celery_app import celery_app
 from app.config import settings
 from app.database import SessionLocal
+import app.models 
 from app.services.report_service import ReportService
 
 
