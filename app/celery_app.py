@@ -2,6 +2,8 @@ from celery import Celery
 from kombu import Exchange, Queue
 
 from app.config import settings
+import app.models 
+import app.database 
 
 report_exchange = Exchange(settings.REPORT_EXCHANGE, type="direct", durable=True)
 report_queue = Queue(
