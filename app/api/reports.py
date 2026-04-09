@@ -6,7 +6,6 @@ from sqlalchemy.orm import Session
 from app.database import SessionLocal
 from app.models import Report, ReportHTMLData
 from app.tasks.report_task import generate_report
-
 router = APIRouter(prefix="/reports", tags=["reports"])
 
 
@@ -19,7 +18,7 @@ def get_db():
 
 
 @router.post("/{report_id}/generate")
-async def generate_report(report_id: str):
+async def generate_report_endpoint(report_id: str):
     task = generate_report.delay(report_id)
     return {"task_id": task.id, "status": "queued"}
 
